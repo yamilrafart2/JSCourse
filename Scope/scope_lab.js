@@ -12,9 +12,9 @@ const globalConst = "Soy una constante global";
 }
 
 // Alcance global
-console.log(globalVar); // Salida: "Soy una variable global"
-console.log(globalLet); // Salida: "También soy global, pero con alcance de let"
-console.log(globalConst); // Salida: "Soy una constante global"
+//console.log(globalVar); // Salida: "Soy una variable global"
+//console.log(globalLet); // Salida: "También soy global, pero con alcance de let"
+//console.log(globalConst); // Salida: "Soy una constante global"
 
 //Block Scope
 //console.log(blockVar);
@@ -27,6 +27,24 @@ const functionConst = "Soy un const con alcance de bloque";
 }
 show();
 
-console.log(functionVar); // Lanza ReferenceError
-console.log(functionLet); // Lanza ReferenceError
-console.log(functionConst); // Lanza ReferenceError
+//console.log(functionVar); // Lanza ReferenceError
+//console.log(functionLet); // Lanza ReferenceError
+//console.log(functionConst); // Lanza ReferenceError
+
+{
+    let varLet = "Soy un let dentro de un bloque";
+    const varConst = "Soy un const dentro de un bloque";
+    var varVar = "Soy un var dentro de un bloque";
+
+    varLet = "He cambiado el let dentro del bloque";
+    varVar = "He cambiado el var dentro del bloque";
+    //varConst = "He cambiado el const dentro del bloque"; // Esto no es posible, ya que las constantes no se pueden reasignar
+}
+
+varLet = "He cambiado el let fuera del bloque";
+varVar = "He cambiado el var fuera del bloque";
+varConst = "He cambiado el const fuera del bloque"; // Esto no es posible, ya que las constantes no se pueden reasignar
+
+console.log(varLet); // Lanza ReferenceError, ya que varLet está fuera de su ámbito
+console.log(varVar); // Salida: "He cambiado el var fuera del bloque"
+console.log(varConst); // Lanza ReferenceError, ya que varConst está fuera de su ámbito
